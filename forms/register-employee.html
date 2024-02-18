@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmploEase | Register Employee</title>
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/pages/services.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="/scripts/nav.js"></script>
+    <script src="/scripts/login.js"></script>
+  </head>
+  <body>
+    <header id="header" class="top-bar flex-sb">
+      <img src="/assets/images/logo.png" alt="EmploEase" class="logo" />
+      <div class="user-wrap">
+        <button id="login-btn" class="btn btn-tertiary">Sign In</button>
+      </div>
+    </header>
+
+    <nav id="header-nav" class="nav top-bar flex-sb"></nav>
+
+    <main id="main">
+      <div id="main-content">
+        <h2 class="form-title typo-tertiary">Register Employee</h2>
+        <form id="attendance-update" class="flex">
+            <div class="form-group">
+              <label for="employee-id">Employee ID</label>
+              <input
+                type="text"
+                id="employee-id"
+                name="employee-id"
+                required
+              />
+            </div>
+            <div class="flex g1 fullwidth">
+              <div class="form-group">
+                <label for="date">Date</label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" name="status" required>
+                  <option></option>
+                  <option value="present">Present</option>
+                  <option value="absent">Absent</option>
+                </select>
+              </div>
+            </div>
+            <div class="flex g1 fullwidth">
+              <div class="form-group">
+                <label for="time-in">Time In</label>
+                <input
+                  type="time"
+                  id="time-in"
+                  name="time-in"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="time-out">Time Out</label>
+                <input
+                  type="time"
+                  id="time-out"
+                  name="time-out"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="break-time">Comment</label>
+              <input
+                type="text"
+                id="break-comment"
+                name="break-comment"
+                required
+              />
+            </div>
+
+          <button type="submit" class="btn btn-tertiary">Update</button>
+        </form>
+      </div>
+    </main>
+
+    <footer id="footer" class="flex">
+      <div id="footer-content" class="flex-sb">
+        <div>
+          <span class="site-name">
+            <span class="site-name-emplo">Emplo</span
+            ><span class="site-name-ease">Ease</span>
+          </span>
+          <nav id="social-nav" class="nav"></nav>
+          <span class="copyright">
+            Copyright © 2024 EmploEase, Inc. All rights reserved.
+          </span>
+        </div>
+        <nav id="footer-nav" class="nav"></nav>
+      </div>
+    </footer>
+
+    <div id="login-dialog" class="dialog">
+      <div class="dialog-content flex-column">
+        <h2 class="dialog-title">Login</h2>
+        <form id="login-form" class="flex-column g1">
+          <input
+            type="text"
+            class="error"
+            id="username"
+            name="username"
+            placeholder="User"
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <div class="frm-buttons flex g1">
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button class="btn btn-secondary close-button">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

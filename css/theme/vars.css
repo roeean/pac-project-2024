@@ -1,0 +1,46 @@
+:root {
+    /* Primary Color Palette */
+    --color-primary: #827df5;
+    --color-primary-lighten: #ebe9fe;
+    --color-primary-light: #a8a3f8;
+    --color-primary-dark: #4827c9;
+    --color-primary-darken: #3900A3;
+  
+    /* Secondary Color Palette */
+    --color-secondary: #282c34;
+    --color-secondary-light: #e0e0e0;
+    --color-secondary-dark: #212529;
+  
+    /* tertiary Color Palette */
+    --color-tertiary: #f5827d;
+    --color-tertiary-lighten: #fad3d2;
+    --color-tertiary-light: #f9afac;
+    --color-tertiary-dark: #f1544e;
+    
+    /* Layouts Colors */
+    --color-background: #f8f8fe;
+    --color-background-dialog: #00000050;
+    --color-border: #e0e0e0;
+  
+    /* Grayscale Palette */
+    --color-gray: #f8f9fa;
+    --color-gray-light: #f1f3f5;
+    --color-gray-dark: #6c757d;
+    --color-gray-darken: #343a40;
+  
+    /* Common Colors */
+    --color-white: #fff;
+
+    /* Error Color */
+    --color-error: #ff0000;
+    --color-error-lighten: #ffcccc;
+    --color-error-darken: #cc0000;
+  
+    
+    /* Layout Sizes */
+    --header-height: 50px;
+    --logo-height: 30px;
+    --nav-height: 41px;
+    
+  }
+  

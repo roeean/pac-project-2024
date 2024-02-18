@@ -1,0 +1,110 @@
+/*! Input */
+
+input, select { 
+    width: calc(100%);  
+    height: 51px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    color: var(--color-primary-dark);
+    border: 1px solid var(--color-primary-lighten);
+    background-color: transparent;
+    border-radius: 3px;
+    padding: 0 12px;
+    outline: none;
+}
+
+input::placeholder,
+select::placeholder {
+    color: var(--color-primary-light);
+}
+
+input:hover, select:hover {
+    border: 1px solid var(--color-primary);
+}
+
+input:focus, select:focus {
+    border: 1px solid var(--color-primary-dark);
+}
+
+input.error, select.error {
+    border: 1px solid var(--color-error-darken);
+}
+
+input.error::placeholder, select.error::placeholder {
+    color: var(--color-error);
+}
+
+input.error:hover, select.error:hover {
+    border: 1px solid var(--color-error);
+}
+
+input.error:focus, select.error:focus {
+    border: 1px solid var(--color-error-darken);
+}
+
+/*! Button */
+
+.frm-buttons {
+    width: 100%;  
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+form button {
+    width: 100%;
+    height: 51px;
+    font-size: 1.2rem;
+}
+
+/*! Label */
+
+label {
+    color: var(--color-primary-dark);
+    font-weight: 400;
+    pointer-events: none;
+    width: 100%;
+    line-height: 1;
+}
+
+.form-group:has(*:hover) label {
+    font-weight: 600;
+}
+.form-group:has(*:focus) label {
+    font-weight: 700;
+}
+
+/*! Group */
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    width: 100%;
+}
+
+.form-group label {
+    position: absolute;
+    left: 6px;
+    top: -8px;
+    height: 16px;
+    padding: 0 3px;
+    font-size: 0.8rem;
+    background-color: var(--color-background);
+    width: auto;
+}
+
+/*! Layout */
+
+form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.form-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}

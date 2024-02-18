@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmploEase - HR Platform</title>
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/pages/home.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="/scripts/nav.js"></script>
+    <script src="/scripts/login.js"></script>
+  </head>
+  <body>
+    <header id="header" class="top-bar flex-sb">
+      <img src="/assets/images/logo.png" alt="EmploEase" class="logo" />
+      <div class="user-wrap">
+        <button id="login-btn" class="btn btn-tertiary">Sign In</button>
+      </div>
+    </header>
+
+    <nav id="header-nav" class="nav top-bar flex-sb"></nav>
+
+    <main id="main">
+      <div id="main-content">
+        <div class="flex g2">
+          <div>
+            <div id="page-title">
+              <span id="page-title-welcome">Welcome to</span>
+              <h1 id="page-title-main" class="typo-w600">
+                <span>the</span>
+                <span class="typo-primary">modern</span>
+              </h1>
+              <span id="page-title-sub">
+                <span class="typo-tertiary">HR</span>
+                <span>Management</span>
+              </span>
+            </div>
+            <p id="page-sub-title">
+              The <span class="typo-tertiary">HR</span>
+              platform that powers
+              <span class="typo-primary"> productivity</span>,
+              <span class="typo-primary">engagement</span>, and
+              <span class="typo-primary"> retention</span>.
+            </p>
+            <div id="buttons" class="g1">
+              <button class="btn btn-tertiary">Get Started</button>
+              <button class="btn btn-primary">Learn More</button>
+            </div>
+          </div>
+          <img
+            src="/assets/images/home-logo.png"
+            alt="EmploEase"
+            class="home-page-logo"
+          />
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="flex">
+      <div id="footer-content" class="flex-sb">
+        <div>
+          <span class="site-name">
+            <span class="site-name-emplo">Emplo</span
+            ><span class="site-name-ease">Ease</span>
+          </span>
+          <nav id="social-nav" class="nav"></nav>
+          <span class="copyright">
+            Copyright © 2024 EmploEase, Inc. All rights reserved.
+          </span>
+        </div>
+        <nav id="footer-nav" class="nav"></nav>
+      </div>
+    </footer>
+
+    <div id="login-dialog" class="dialog">
+      <div class="dialog-content flex-column">
+        <h2 class="dialog-title">Login</h2>
+        <form id="login-form" class="flex-column g1">
+          <input
+            type="text"
+            class="error"
+            id="username"
+            name="username"
+            placeholder="User"
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <div class="frm-buttons flex g1">
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button class="btn btn-secondary close-button">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
