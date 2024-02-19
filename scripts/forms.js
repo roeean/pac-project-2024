@@ -1,55 +1,103 @@
-//! Form initialization
-
-const initializeForm = (formId, validatorCallback = () => {}) => {
-  const form = formId && document.getElementById(formId);
-  if (!form) {
-    console.error("Form not found");
-    return;
+class FormValidator {
+  constructor(formId) {
+    this.form = document.getElementById(formId);
+    if (!this.form) throw new Error(`Form with ID "${formId}" not found.`);
+    this.errors = [];
   }
 
-  form.addEventListener("submit", (event) => {
+  addError(inputId, message) {
+    const inputElement = document.getElementById(inputId);
+    if (!inputElement) return;
+
+    this.clearError(inputId); // Ensure any previous error messages are cleared
+    const errorMessageElement = document.createElement("div");
+    errorMessageElement.className = "error-message";
+    errorMessageElement.textContent = message;
+    inputElement.parentElement.appendChild(errorMessageElement);
+    inputElement.classList.add("error");
+  }
+
+  clearError(inputId) {
+    const inputElement = document.getElementById(inputId);
+    if (!inputElement) return;
+
+    const errorElement =
+      inputElement.parentElement.querySelector(".error-message");
+    if (errorElement) errorElement.remove();
+    inputElement.classList.remove("error");
+  }
+
+  clearAllErrors() {
+    this.errors.forEach(({ id }) => this.clearError(id));
+    this.errors = []; // Reset the errors array after clearing
+  }
+
+  validateOnSubmit({ requiredFields = [], customValidations = {} }, data = {}) {
+    this.clearAllErrors(); // Reset errors before new validation
+
+    // Handle required fields
+    requiredFields.forEach((id) => {
+      const inputElement = document.getElementById(id);
+      if (inputElement && inputElement.value.trim() === "") {
+        this.addError(id, `${id} is required`);
+        this.errors.push({ id, message: `${id} is required` });
+      }
+    });
+
+    // Handle custom validations
+    Object.entries(customValidations).forEach(([id, validations]) => {
+      validations.forEach(({ isValid, message }) => {
+        const inputValue = document.getElementById(id).value;
+        if (!isValid(inputValue, data)) {
+          this.addError(id, message);
+          this.errors.push({ id, message });
+        }
+      });
+    });
+
+    return this.errors.length === 0; // Return true if no errors, otherwise false
+  }
+
+  attachOnChangeValidation(validations) {
+    Object.entries(validations.customValidations).forEach(
+      ([fieldId, rules]) => {
+        const field = document.getElementById(fieldId);
+        if (!field) return;
+
+        field.addEventListener("change", () => {
+          this.clearError(fieldId);
+
+          rules.forEach(({ isValid, message }) => {
+            const value = field.value;
+            const data = Object.fromEntries(new FormData(this.form).entries());
+            if (!isValid(value, data)) {
+              this.addError(fieldId, message);
+            }
+          });
+        });
+      }
+    );
+  }
+}
+
+const initializeForm = (formId, validations) => {
+  const formValidator = new FormValidator(formId);
+
+  // Attach on-change validation for specified fields
+  formValidator.attachOnChangeValidation(validations);
+
+  // Handle form submission
+  formValidator.form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const formData = new FormData(form);
-    const data = {};
-    for (const [key, value] of formData.entries()) {
-      data[key] = {
-        value,
-        classes: Array.from(form.elements[key].classList),
-      };
+    const data = Object.fromEntries(new FormData(formValidator.form).entries());
+
+    // Perform full form validation on submit
+    if (formValidator.validateOnSubmit(validations, data)) {
+      console.log("Form is valid", data);
+      // Form submission logic here (e.g., AJAX request)
+    } else {
+      console.log("Form validation failed");
+      // Optionally focus the first input with an error
     }
-    validatorCallback(data);
   });
-};
-
-//! Error handling
-
-const getElementById = (id) => document.getElementById(id);
-
-const removeError = (id) => {
-  const element = getElementById(id);
-  if (!element) return;
-
-  const error = element.parentElement.querySelector(".error-message");
-  if (error) error.remove();
-  element.classList.remove("error");
-};
-
-const addError = (id, message) => {
-  const element = getElementById(id);
-  if (!element) return;
-
-  removeError(id);
-  const error = document.createElement("div");
-  error.className = "error-message";
-  error.textContent = message;
-  element.parentElement.appendChild(error);
-  element.classList.add("error");
-};
-
-const errorHandler = ({ id, message, condition }) => {
-  removeError(id);
-  if (!condition) {
-    addError(id, message);
-    return true;
-  }
 };
