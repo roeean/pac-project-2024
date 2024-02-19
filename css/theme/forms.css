@@ -78,7 +78,7 @@ label {
 
 .form-group {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 45px;
     display: flex;
     width: 100%;
 }
@@ -92,6 +92,19 @@ label {
     font-size: 0.8rem;
     background-color: var(--color-background);
     width: auto;
+}
+
+.form-group:has(*.error) label {
+    font-weight: 500;
+    color: var(--color-error);
+}
+
+.form-group .error-message {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    font-size: 0.8rem;
+    color: var(--color-error);
 }
 
 /*! Layout */
