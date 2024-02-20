@@ -96,7 +96,7 @@
   text-transform: uppercase;
   line-height: 1;
   letter-spacing: -3px;
-  opacity: 0;
+  opacity: 0.8;
   z-index: 1;
 }
 

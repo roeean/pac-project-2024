@@ -38,6 +38,13 @@
   max-width: 400px;
 }
 
+#footer-nav .menu .menu-item:not(:first-child)::before {
+  content: ' ';
+ margin: 0 10px 0 3px;
+ border-left: 1px solid var(--color-secondary-dark);
+}
+
+
 #footer-nav .menu .menu-item a,
 #social-nav .menu .menu-item a {
   color: var(--color-secondary);
