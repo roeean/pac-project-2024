@@ -25,9 +25,9 @@ const navigationItems = [
     icon: ['fas', 'fa-user-clock'],
   },
   {
-    href: '/forms/report.html',
-    text: 'Monthly Report',
-    icon: ['fas', 'fa-file-alt'],
+    href: '/forms/shift.html',
+    text: 'Add shift',
+    icon: ['fas', 'fa-plus-square'],
   },
   {
     href: '/forms/support.html',

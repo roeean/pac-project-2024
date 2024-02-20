@@ -1,3 +1,7 @@
+#main {
+  height: 100vh;
+}
+
 #main #main-content {
   justify-content: center;
 }

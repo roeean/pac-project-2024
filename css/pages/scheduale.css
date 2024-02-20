@@ -1,0 +1,76 @@
+#shift-schedule-form {
+    width: 100%;
+    max-width: 1280px;
+}
+/* General table styling */
+#shift-schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed; 
+  }
+  
+  #shift-schedule-table th,
+  #shift-schedule-table td {
+    border: 1px solid var(--color-primary); /* Add a border to all cells */
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Make the first column wider and center-align its content */
+  #shift-schedule-table td:first-child, 
+  #shift-schedule-table th:first-child {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  #shift-schedule-table td:first-child {
+  background-color: var(--color-primary-lighten);
+  }
+  
+  /* Center-align text in the first row (header) */
+  #shift-schedule-table th {
+    background-color: var(--color-primary);
+    color: white;
+    text-align: center; /* Center-align header text */
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+
+
+  /* Hover effect for table rows */
+  #shift-schedule-table tr:hover {
+    background-color: var(--color-primary-lighten);
+}
+  
+
+  /* Styling for form elements within the table */
+  #shift-schedule-table select,
+  #shift-schedule-table input[type="text"] {
+    width: 100%;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--color-primary);
+  }
+  
+    /* Styling for form elements within the table */
+#shift-schedule-table select.error,
+#shift-schedule-table input[type="text"].error {
+      width: 100%;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      border-bottom: 1px solid var(--color-error);
+    }
+    
+    #shift-schedule-table .error-message {
+       display: none;
+    }
+
+    td:has(.error-message) {
+      background-color: var(--color-error-lighten);
+    }

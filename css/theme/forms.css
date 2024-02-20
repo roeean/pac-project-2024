@@ -85,11 +85,19 @@ input[type='radio']:checked, input[type='checkbox']:checked {
 
 /*! Others */
 
-
 textarea {
   height: 50px;
   resize: none;
   padding: 20px;
+}
+
+input[type='file'] {
+  padding-top: 25px;
+}
+
+.multiple-select {
+  height: 150px;
+  padding: 10px;
 }
 
 /*! Error */

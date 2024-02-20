@@ -72,6 +72,10 @@ a .fas {
   gap: 2rem;
 }
 
+.mb1 {
+  margin-bottom: 1rem;
+}
+
 .fullwidth {
   width: 100%;
 }
@@ -91,7 +95,7 @@ a .fas {
 .space {
     display: flex;
     flex-direction: column;
-    height: calc(100% - 20px);
+    margin-bottom: 20px;
     justify-content: space-between;
 }
 /*! Bars */
@@ -111,6 +115,7 @@ a .fas {
   max-width: 1280px;
   width: 100%;
   margin-top: 3rem;
+  align-items: flex-start
 }
 
 .cat .with-gap {
@@ -124,7 +129,7 @@ a .fas {
 }
 
 form.cta-box {
-  margin-top: 45px;
+  margin-top: 25px;
 }
 
 .cta-description {

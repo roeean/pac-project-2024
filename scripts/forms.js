@@ -28,7 +28,7 @@ class FormValidator {
   }
 
   applyDisplayLogic() {
-    Object.entries(this.showingLogic).forEach(([fieldId, displayLogic]) => {
+    Object.entries(this.showingLogic).forEach(([fieldId]) => {
       const field = document.getElementById(fieldId);
       if (!field) return;
 

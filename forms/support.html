@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EmploEase | Support</title>
     <link rel="stylesheet" href="/css/index.css" />
-    <link rel="stylesheet" href="/css/pages/services.css" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="/scripts/nav.js"></script>
     <script src="/scripts/login.js"></script>
     <script src="/scripts/forms.js"></script>
+    <script src="/scripts/forms/commonValidations.js"></script>
+    <script src="/scripts/forms/support.js"></script>
   </head>
   <body>
     <header id="header" class="top-bar flex-sb">
@@ -23,43 +24,109 @@
 
     <main id="main">
       <div id="main-content">
-        <h2 class="form-title typo-tertiary">Support</h2>
-        <form id="attendance-update" class="flex">
-          <div class="form-group">
-            <label for="employee-id">Employee ID</label>
-            <input type="text" id="employee-id" name="employee-id" required />
-          </div>
-          <div class="flex g1 fullwidth">
-            <div class="form-group">
-              <label for="date">Date</label>
-              <input type="date" id="date" name="date" required />
+        <div class="hero hero-primary">
+          <img src="/assets/images/workers.jpg" alt="About EmploEase" />
+          <h1>Support Request</h1>
+        </div>
+
+        <div class="flex cta with-gap">
+          <div class="cta-box">
+            <div class="cta-content">
+              <h2 class="cta-title">Contact Support</h2>
+              <p class="cta-description">Fill out the form below to contact our support team with any inquiries or issues you may have:</p>
+              <ul class="cta-list">
+                <li class="cta-item">
+                  <div class="item-content">
+                    <span id="employee-id-span" class="item-field">Your ID</span>
+                    <span class="item-note">Please provide your unique employee ID for verification.</span>
+                  </div>
+                </li>
+                <li class="cta-item">
+                  <div class="item-content">
+                    <span id="employee-email-span" class="item-field">Your Email</span>
+                    <span class="item-note">Enter your email address for follow-up communication.</span>
+                  </div>
+                </li>
+                <li class="cta-item">
+                  <div class="item-content">
+                    <span id="contact-number-span" class="item-field">Contact Number</span>
+                    <span class="item-note">Optional: Include a phone number for direct contact.</span>
+                  </div>
+                </li>
+                <li class="cta-item">
+                  <div class="item-content">
+                    <span id="support-type-span" class="item-field">Type of Support Needed</span>
+                    <span class="item-note">Select the category that best describes your request.</span>
+                  </div>
+                </li>
+                <li class="cta-item">
+                  <div class="item-content">
+                    <span id="support-description-span" class="item-field">Detailed Description</span>
+                    <span class="item-note">Provide a comprehensive explanation of your issue or inquiry.</span>
+                  </div>
+                </li>
+                <li class="cta-item">
+                  <div class="item-content">
+                    <span id="file-attachment-span" class="item-field">Attach File (Optional)</span>
+                    <span class="item-note">Attach any relevant documents or images. Supported formats: .doc, .docx, .pdf, .jpg, .png.</span>
+                  </div>
+                </li>
+              </ul>
             </div>
+          </div>
+          
+          <form id="support-form" class="cta-box">
+            <!-- Employee Identification -->
             <div class="form-group">
-              <label for="status">Status</label>
-              <select id="status" name="status" required>
-                <option></option>
-                <option value="present">Present</option>
-                <option value="absent">Absent</option>
+              <label for="employee-id">Your ID</label>
+              <input type="text" id="employee-id" name="employee-id" />
+            </div>
+          
+            <!-- Contact Information -->
+            <div class="form-group">
+              <label for="employee-email">Your Email</label>
+              <input type="email" id="employee-email" name="employee-email" placeholder="example@gmail.com" />
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-number">Contact Number</label>
+              <input type="tel" id="contact-number" name="contact-number" placeholder="055-555-5555" />
+            </div>
+          
+            <!-- Type of Support Needed -->
+            <div class="form-group">
+              <label for="support-type">Type of Support Needed</label>
+              <select id="support-type" name="support-type">
+                <option value="">Please Select</option>
+                <option value="it">IT Support</option>
+                <option value="hr">HR Inquiry</option>
+                <option value="payroll">Payroll</option>
+                <option value="benefits">Benefits & Compensation</option>
+                <option value="leave">Leave & Time Off</option>
+                <option value="other">Other</option>
               </select>
             </div>
-          </div>
-          <div class="flex g1 fullwidth">
+          
+            <!-- Detailed Description of the Request -->
             <div class="form-group">
-              <label for="time-in">Time In</label>
-              <input type="time" id="time-in" name="time-in" required />
+              <label for="support-description">Detailed Description</label>
+              <textarea id="support-description" name="support-description" rows="5" placeholder="Please describe your issue or request in detail."></textarea>
             </div>
+          
+            <!-- File Attachment -->
             <div class="form-group">
-              <label for="time-out">Time Out</label>
-              <input type="time" id="time-out" name="time-out" required />
+              <label for="file-attachment">Attach File (Optional)</label>
+              <input type="file" id="file-attachment" name="file-attachment" accept=".doc,.docx,.pdf,.jpg,.png" />
             </div>
-          </div>
-          <div class="form-group">
-            <label for="break-time">Comment</label>
-            <input type="text" id="break-comment" name="break-comment" required />
-          </div>
-
-          <button type="submit" class="btn btn-tertiary">Update</button>
-        </form>
+          
+            <!-- Form Submission -->
+            <div class="form-buttons">
+              <input type="submit" class="btn btn-tertiary" value="Submit Request" />
+              <input type="reset" class="btn btn-secondary" value="Reset" />
+            </div>
+          </form>
+          
+        </div>
       </div>
     </main>
 
