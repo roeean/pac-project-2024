@@ -51,17 +51,26 @@
                   <input type="text" id="last-name" name="last-name" required />
                 </div>
               </div>
-              <div class="form-group">
-                <label for="date-of-birth">Date of Birth</label>
-                <input type="date" id="date-of-birth" name="date-of-birth" required />
+              <div class="flex fullwidth g1">
+                <div class="form-group">
+                  <label for="date-of-birth">Date of Birth</label>
+                  <input type="date" id="date-of-birth" name="date-of-birth" required />
+                </div>
+                <div class="form-group">
+                  <label for="identity-number">Identity number</label>
+                  <input type="text" id="identity-number" name="identity-number" required />
+                </div>
               </div>
               <div class="form-group">
                 <label for="gender">Gender</label>
-                <select id="gender" name="gender">
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
-                </select>
+                <div class="radio-group">
+                  <input type="radio" id="huey" name="drone" value="huey" checked />
+                  <label for="huey">Huey</label>
+                </div>
+                <div>
+                  <input type="radio" id="huey" name="drone" value="huey" checked />
+                  <label for="huey">Huey</label>
+                </div>
               </div>
               <div class="form-group">
                 <label for="nationality">Nationality</label>
