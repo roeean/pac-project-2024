@@ -23,11 +23,11 @@ const customValidations = {
   'email': [validationPatterns.isEmail],
   'phone-number': [
     validationPatterns.isNumber,
-    validationPatterns.isLengthInRange(10,15), // Adjusted to the correct range as per your requirements
+    validationPatterns.isLengthInRange(10,15),
   ],
   'employee-id': [
     validationPatterns.isDigitsOnly,
-    validationPatterns.isLengthInRange(2, 9), // Adjusted to the correct range as per your requirements
+    validationPatterns.isLengthInRange(2, 9),
   ],
   'start-date': [validationPatterns.isDateNotInFuture],
   'additional-preferences': [validationPatterns.isMaxLength(500)],
@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       customValidations
     },
     onSuccess: (data) => {
+      alert('Form submitted successfully!, check the console for the data');
       console.log(data);
     },
   });

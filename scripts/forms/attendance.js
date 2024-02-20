@@ -9,7 +9,7 @@ const requiredFields = [
 const customValidations = {
   'employee-id': [
     validationPatterns.isDigitsOnly,
-    validationPatterns.isLengthInRange(2, 9), // Adjusted to the correct range as per your requirements
+    validationPatterns.isLengthInRange(2, 9), 
   ],
   'time-out': [
     {
@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     },
     onSuccess: (data) => {
+      alert('Form submitted successfully!, check the console for the data');
       console.log(data);
     },
   });

@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     },
     onSuccess: (data) => {
+      alert('Form submitted successfully!, check the console for the data');
       console.log(data);
     },
   });

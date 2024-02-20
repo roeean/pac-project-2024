@@ -9,7 +9,7 @@ const requiredFields = [
 const customValidations = {
   'employee-id': [
     validationPatterns.isDigitsOnly,
-    validationPatterns.isLengthInRange(2, 9), // Adjusted to the correct range as per your requirements
+    validationPatterns.isLengthInRange(2, 9),
   ],
   'employee-email': [validationPatterns.isEmail],
   'contact-number': [validationPatterns.isDigitsOnly, validationPatterns.isLengthInRange(10, 15)],
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       customValidations,
     },
     onSuccess: (data) => {
-      alert('Form submitted successfully!, check the console for the data', data);
+      alert('Form submitted successfully!, check the console for the data');
       console.log(data);
     },
   });
