@@ -1,5 +1,6 @@
 /*! Input */
 
+textarea,
 input,
 select {
   width: calc(100%);
@@ -29,24 +30,84 @@ select:focus {
   border: 1px solid var(--color-primary-dark);
 }
 
+/*! Radio & Checkbox */
+
+input[type='radio'], input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 1px solid var(--color-primary-lighten);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type='radio']:hover, input[type='checkbox']:hover {
+  border: 1px solid var(--color-primary);
+}
+
+input[type='radio']:checked, input[type='checkbox']:checked {
+  border: 1px solid var(--color-primary-dark);
+}
+
+.radio-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.radio-group input {
+  display: none;
+}
+
+.radio-group label {
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid var(--color-primary-light);
+  pointer-events: unset;
+}
+
+.radio-group:first-of-type label {
+  border-radius: 10px 0 0 10px;
+}
+
+.radio .radio-group:last-of-type label {
+  border-radius: 0 10px 10px 0;
+}
+
+.radio-group:has(:checked) label {
+  background-color: var(--color-primary-light);
+  color: var(--color-white);
+}
+
+
+/*! Others */
+
+
+textarea {
+  height: 50px;
+  resize: none;
+  padding: 20px;
+}
+
 /*! Error */
 
 input.error,
+textarea.error,
 select.error {
   border: 1px solid var(--color-error-darken);
 }
 
-input.error::placeholder,
-select.error::placeholder {
-  color: var(--color-error);
-}
-
 input.error:hover,
+textarea.error:hover,
 select.error:hover {
   border: 1px solid var(--color-error);
 }
 
 input.error:focus,
+textarea.error:focus,
 select.error:focus {
   border: 1px solid var(--color-error-darken);
 }
@@ -108,7 +169,7 @@ label {
   width: 100%;
 }
 
-.form-group label {
+.form-group label:not(.radio-label) {
   position: absolute;
   left: 6px;
   top: -8px;
@@ -118,6 +179,7 @@ label {
   background-color: var(--color-background);
   width: auto;
 }
+
 
 .form-group label.white-label {
   background-color: var(--color-white);
@@ -178,4 +240,23 @@ form {
 
 .item-field.invisible {
   color: var(--color-gray-dark);
+}
+
+/*! fieldset */
+
+fieldset {
+  border: 1px solid var(--color-primary-light);
+  color: var(--color-primary-dark);
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+fieldset legend {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-tertiary-dark);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 400;
 }

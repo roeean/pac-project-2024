@@ -21,7 +21,7 @@ class FormValidator {
       validations[fieldId] = validations[fieldId] || [];
       validations[fieldId].push({
         isValid: (value) => value.trim() !== '',
-        message: `${fieldId.replace('-', ' ')} is required`,
+        message: `${fieldId.replaceAll('-', ' ')} is required`,
       });
     });
     return validations;
@@ -119,6 +119,7 @@ class FormValidator {
     const inputElement = document.getElementById(inputId);
     if (!inputElement || !this.isFieldVisible(inputId)) return;
 
+    message = message.replaceAll('%field%', inputId.replaceAll('-',' '));
     this.clearMessage(inputId);
 
     const errorMessageElement = document.createElement('div');

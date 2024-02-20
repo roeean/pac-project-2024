@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EmploEase | Register Employee</title>
     <link rel="stylesheet" href="/css/index.css" />
-    <link rel="stylesheet" href="/css/pages/services.css" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="/scripts/nav.js"></script>
     <script src="/scripts/login.js"></script>
     <script src="/scripts/forms.js"></script>
+    <script src="/scripts/forms/commonValidations.js"></script>
+    <script src="/scripts/forms/register.js"></script>
   </head>
   <body>
     <header id="header" class="top-bar flex-sb">
@@ -29,61 +30,57 @@
         </div>
 
         <div class="flex cta with-gap">
-          <div class="cta-box">
-            <div class="cta-content">
-              <h2 class="cta-title">Register new employee</h2>
-              <p class="cta-description">Fill out the form below to register a new employee:</p>
-              <ul class="cta-list"></ul>
-            </div>
-          </div>
+          
 
-          <form id="employee-register-form" class="cta-box">
-            <!-- Personal Details Section -->
-            <fieldset>
+          <form id="register-form" class="cta-box">
+            
+            <div class="flex fullwidth g1 stretch">
+              <!-- Personal Details Section -->
+            <fieldset class="fullwidth">
               <legend>Personal Details</legend>
               <div class="flex fullwidth g1">
                 <div class="form-group">
                   <label for="first-name">First name</label>
-                  <input type="text" id="first-name" name="first-name" required />
+                  <input type="text" id="first-name" name="first-name"  />
                 </div>
                 <div class="form-group">
                   <label for="last-name">Last name</label>
-                  <input type="text" id="last-name" name="last-name" required />
+                  <input type="text" id="last-name" name="last-name"  />
                 </div>
               </div>
               <div class="flex fullwidth g1">
                 <div class="form-group">
                   <label for="date-of-birth">Date of Birth</label>
-                  <input type="date" id="date-of-birth" name="date-of-birth" required />
+                  <input type="date" id="date-of-birth" name="date-of-birth"  />
                 </div>
                 <div class="form-group">
                   <label for="identity-number">Identity number</label>
-                  <input type="text" id="identity-number" name="identity-number" required />
+                  <input type="text" id="identity-number" name="identity-number"  />
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group radio">
                 <label for="gender">Gender</label>
                 <div class="radio-group">
-                  <input type="radio" id="huey" name="drone" value="huey" checked />
-                  <label for="huey">Huey</label>
+                  <input type="radio" id="male" name="gender" value="male"  />
+                  <label class="radio-label" for="male">Male</label>
                 </div>
-                <div>
-                  <input type="radio" id="huey" name="drone" value="huey" checked />
-                  <label for="huey">Huey</label>
+                <div class="radio-group">
+                  <input type="radio" id="female" name="gender" value="female" checked />
+                  <label class="radio-label" for="female">Female</label>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="nationality">Nationality</label>
-                <input type="text" id="nationality" name="nationality" />
+                <div class="radio-group">
+                  <input type="radio" id="other" name="gender" value="other" />
+                  <label class="radio-label" for="other">Other</label>
+                </div>
               </div>
             </fieldset>
 
             <!-- Contact Information Section -->
-            <fieldset>
+            <fieldset class="fullwidth">
               <legend>Contact Information</legend>
               <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required />
+                <input type="email" id="email" name="email"  />
               </div>
               <div class="form-group">
                 <label for="phone-number">Phone Number</label>
@@ -94,48 +91,110 @@
                 <textarea id="address" name="address" rows="4"></textarea>
               </div>
             </fieldset>
+            </div>
+            
+            <div class="flex fullwidth g1 stretch">
 
-            <!-- Employment Details Section -->
-            <fieldset>
-              <legend>Employment Details</legend>
-              <div class="form-group">
-                <label for="employee-id">Employee ID</label>
-                <input type="text" id="employee-id" name="employee-id" required />
+              <!-- Employment Details Section -->
+              <div class="fullwidth">
+                <fieldset>
+                  <legend>Employment Details</legend>
+                  <div class="form-group">
+                    <label for="employee-id">Employee ID</label>
+                    <input type="text" id="employee-id" name="employee-id"  />
+                  </div>
+                  <div class="form-group">
+                    <label for="department">Department</label>
+                    <select id="department" name="department">
+                      <option></option>
+                      <option value="hr">Human Resources</option>
+                      <option value="it">Information Technology</option>
+                      <option value="finance">Finance</option>
+                      <option value="marketing">Marketing</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="position">Position</label>
+                    <input type="text" id="position" name="position" />
+                  </div>
+                  <div class="form-group">
+                    <label for="start-date">Start Date</label>
+                    <input type="date" id="start-date" name="start-date" />
+                  </div>
+                  <div class="form-group">
+                    <label for="employment-type">Employment Type</label>
+                    <select id="employment-type" name="employment-type">
+                      <option></option>
+                      <option value="full-time">Full-time</option>
+                      <option value="part-time">Part-time</option>
+                      <option value="contract">Contract</option>
+                      <option value="temporary">Temporary</option>
+                    </select>
+                  </div>
+                </fieldset>
               </div>
-              <div class="form-group">
-                <label for="department">Department</label>
-                <select id="department" name="department">
-                  <option value="">Select Department</option>
-                  <option value="hr">Human Resources</option>
-                  <option value="it">Information Technology</option>
-                  <option value="finance">Finance</option>
-                  <option value="marketing">Marketing</option>
-                </select>
+              <div class="fullwidth space">
+                <!-- Employment Details Section -->
+                <fieldset>
+                  <legend>Employment Preferences</legend>
+                  <!-- Preferred Shift -->
+                  <div class="form-group ">
+                    <label for="preferred-shift">Preferred Shift</label>
+                    <select id="preferred-shift" name="preferred-shift">
+                      <option value="">Select Preferred Shift</option>
+                      <option value="morning">Morning (e.g., 6 AM - 2 PM)</option>
+                      <option value="day">Day (e.g., 9 AM - 5 PM)</option>
+                      <option value="evening">Evening (e.g., 2 PM - 10 PM)</option>
+                      <option value="night">Night (e.g., 10 PM - 6 AM)</option>
+                      <option value="flexible">Flexible</option>
+                    </select>
+                  </div>
+  
+                  <!-- Preferred Workdays -->
+                  <div class="form-group radio">
+                    <label>Preferred Workdays</label>
+                    <div class="radio-group">
+                      <label class="radio-label" for="workdays-sunday">Sunday</label>
+                      <input type="checkbox" id="workdays-sunday" name="workdays" value="Sunday" />
+                    </div>
+                    <div class="radio-group">
+                      <label class="radio-label" for="workdays-monday">Monday</label>
+                        <input type="checkbox" id="workdays-monday" name="workdays" value="Monday" />
+                      </div>
+                      <div class="radio-group">
+                          <label class="radio-label" for="workdays-tuesday">Tuesday</label>
+                          <input type="checkbox" id="workdays-tuesday" name="workdays" value="Tuesday" />
+                        </div>
+                      <div class="radio-group">
+                          <label class="radio-label" for="workdays-wednesday">Wednesday</label>
+                          <input type="checkbox" id="workdays-wednesday" name="workdays" value="Wednesday" />
+                        </div>
+                      <div class="radio-group">
+                          <label class="radio-label" for="workdays-thursday">Thursday</label>
+                          <input type="checkbox" id="workdays-thursday" name="workdays" value="Thursday" />
+                        </div>
+                      <div class="radio-group">
+                          <label class="radio-label" for="workdays-friday">Friday</label>
+                          <input type="checkbox" id="workdays-friday" name="workdays" value="Friday" />
+                        </div>
+                  </div>
+              
+                  <!-- Additional Preferences -->
+                  <div class="form-group">
+                    <label for="additional-preferences">Additional Preferences</label>
+                    <textarea id="additional-preferences" name="additional-preferences" rows="3"></textarea>
+                  </div>
+                </fieldset>
+              
+              <div class="form-buttons">
+                <input type="submit" class="btn btn-tertiary" value="Register" />
+                <input type="reset" class="btn btn-secondary" value="Reset" />
               </div>
-              <div class="form-group">
-                <label for="position">Position</label>
-                <input type="text" id="position" name="position" />
-              </div>
-              <div class="form-group">
-                <label for="start-date">Start Date</label>
-                <input type="date" id="start-date" name="start-date" />
-              </div>
-              <div class="form-group">
-                <label for="employment-type">Employment Type</label>
-                <select id="employment-type" name="employment-type">
-                  <option value="full-time">Full-time</option>
-                  <option value="part-time">Part-time</option>
-                  <option value="contract">Contract</option>
-                  <option value="temporary">Temporary</option>
-                </select>
-              </div>
-            </fieldset>
+            </div>
+            </div>
 
             <!-- Form Actions -->
-            <div class="form-buttons">
-              <input type="submit" class="btn btn-primary" value="Register" />
-              <input type="reset" class="btn btn-secondary" value="Reset" />
-            </div>
+
           </form>
         </div>
       </div>

@@ -80,10 +80,20 @@ a .fas {
   height: 100%;
 }
 
+.stretch {
+  align-items: stretch;
+}
+
 .mt3 {
   margin-top: 3rem;
 }
 
+.space {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 20px);
+    justify-content: space-between;
+}
 /*! Bars */
 
 .top-bar {
