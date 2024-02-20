@@ -1,51 +1,51 @@
-  
- #page-title {
-    font-size: 3rem;
-    text-transform: uppercase;
-    line-height: 1;
-    letter-spacing: -3px; 
+#main #main-content {
+  justify-content: center;
+}
 
-  }
-  
+#page-title {
+  font-size: 3rem;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -3px;
+}
+
 #page-title-welcome {
-    font-size: 1.3em;
-    font-weight: 300;
+  font-size: 1.3em;
+  font-weight: 300;
 }
-  
+
 #page-title-main {
-    font-size: 1.8em;
-    font-weight: 600;
+  font-size: 1.8em;
+  font-weight: 600;
 }
-  
+
 #page-title-sub {
-    font-size: 1.5em;
-    font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 300;
 }
-  
-  
+
 #page-sub-title {
-    margin-top: 50px;
-    font-size: 1.5rem;
-    line-height: 1.5;
-    width: 500px;
+  margin-top: 50px;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  width: 500px;
 }
- 
 
 /*! Buttons */
 
 #buttons {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 #buttons .btn {
-    padding: 15px 20px;
-    font-size: 1.2rem;
-    width: 200px;
-}    
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  width: 200px;
+}
 
 /*! Image */
 
 .home-page-logo {
-    position: relative;
-    height: 400px;
+  position: relative;
+  height: 400px;
 }

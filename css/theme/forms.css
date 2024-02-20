@@ -1,124 +1,181 @@
 /*! Input */
 
-input, select { 
-    width: calc(100%);  
-    height: 51px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    color: var(--color-primary-dark);
-    border: 1px solid var(--color-primary-lighten);
-    background-color: transparent;
-    border-radius: 3px;
-    padding: 0 12px;
-    outline: none;
+input,
+select {
+  width: calc(100%);
+  height: 51px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  color: var(--color-primary-dark);
+  border: 1px solid var(--color-primary-lighten);
+  background-color: transparent;
+  border-radius: 3px;
+  padding: 0 12px;
+  outline: none;
 }
 
 input::placeholder,
 select::placeholder {
-    color: var(--color-primary-light);
+  color: var(--color-primary-light);
 }
 
-input:hover:not([type='submit'],[type='reset']), select:hover {
-    border: 1px solid var(--color-primary);
+input:hover:not([type='submit'], [type='reset']),
+select:hover {
+  border: 1px solid var(--color-primary);
 }
 
-input:focus:not([type='submit'],[type='reset']), select:focus {
-    border: 1px solid var(--color-primary-dark);
+input:focus:not([type='submit'], [type='reset']),
+select:focus {
+  border: 1px solid var(--color-primary-dark);
 }
 
-input.error, select.error {
-    border: 1px solid var(--color-error-darken);
+/*! Error */
+
+input.error,
+select.error {
+  border: 1px solid var(--color-error-darken);
 }
 
-input.error::placeholder, select.error::placeholder {
-    color: var(--color-error);
+input.error::placeholder,
+select.error::placeholder {
+  color: var(--color-error);
 }
 
-input.error:hover, select.error:hover {
-    border: 1px solid var(--color-error);
+input.error:hover,
+select.error:hover {
+  border: 1px solid var(--color-error);
 }
 
-input.error:focus, select.error:focus {
-    border: 1px solid var(--color-error-darken);
+input.error:focus,
+select.error:focus {
+  border: 1px solid var(--color-error-darken);
+}
+
+/*! Success */
+
+input.success,
+select.success {
+  border: 1px solid var(--color-success-darken);
+}
+
+input.success::placeholder,
+select.success::placeholder {
+  color: var(--color-success);
+}
+
+input.success:hover,
+select.success:hover {
+  border: 1px solid var(--color-success);
+}
+
+input.success:focus,
+select.success:focus {
+  border: 1px solid var(--color-success-darken);
 }
 
 /*! Button */
 
 .form-buttons {
-    width: 100%;  
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-}
-
-form input[type="submit"]:disabled  {
-    background-color: var(--color-gray);
-    color: var(--color-gray-dark);
-    border: 1px solid var(--color-gray-dark);
-    cursor: not-allowed;
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
 }
 
 /*! Label */
 
 label {
-    color: var(--color-primary-dark);
-    font-weight: 400;
-    pointer-events: none;
-    width: 100%;
-    line-height: 1;
+  color: var(--color-primary-dark);
+  font-weight: 400;
+  pointer-events: none;
+  width: 100%;
+  line-height: 1;
 }
 
 .form-group:has(*:hover) label {
-    font-weight: 600;
+  font-weight: 600;
 }
 .form-group:has(*:focus) label {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 /*! Group */
 
 .form-group {
-    position: relative;
-    margin-bottom: 45px;
-    display: flex;
-    width: 100%;
+  position: relative;
+  margin-bottom: 45px;
+  display: flex;
+  width: 100%;
 }
 
 .form-group label {
-    position: absolute;
-    left: 6px;
-    top: -8px;
-    height: 16px;
-    padding: 0 3px;
-    font-size: 0.8rem;
-    background-color: var(--color-background);
-    width: auto;
+  position: absolute;
+  left: 6px;
+  top: -8px;
+  height: 16px;
+  padding: 0 3px;
+  font-size: 0.8rem;
+  background-color: var(--color-background);
+  width: auto;
 }
 
+.form-group label.white-label {
+  background-color: var(--color-white);
+}
+
+/*! Error Message */
+
 .form-group:has(*.error) label {
-    font-weight: 500;
-    color: var(--color-error);
+  font-weight: 500;
+  color: var(--color-error);
 }
 
 .form-group .error-message {
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-    font-size: 0.8rem;
-    color: var(--color-error);
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  font-size: 0.8rem;
+  color: var(--color-error);
+}
+
+/*! Success */
+
+.form-group:has(*.success) label {
+  color: var(--color-success);
+}
+
+.form-group .success-message {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  font-size: 0.8rem;
+  color: var(--color-success);
 }
 
 /*! Layout */
 
 form {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    width: 500px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
 }
 
 .form-title {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.item-field.error {
+  color: var(--color-error);
+  font-weight: 500;
+}
+
+.item-field.success {
+  color: var(--color-success);
+}
+
+.item-field.invisible {
+  color: var(--color-gray-dark);
 }

@@ -1,41 +1,34 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   initializeForm({
-    fromId: "attendance-form",
+    formId: 'attendance-form',
     validations: {
-      requiredFields: ["date", "employee-id", "time-out", "break-comment"],
+      requiredFields: ['employee-id', 'date', 'status', 'time-in', 'time-out'],
       customValidations: {
-        "employee-id": [
+        'employee-id': [
           {
             isValid: (value) => value.trim().length === 9,
-            message: "Employee ID must be 9-digit long",
+            message: 'Employee ID must be 9-digit long',
           },
           {
             isValid: (value) => !isNaN(value),
-            message: "Employee ID must contain digits only",
+            message: 'Employee ID must contain digits only',
           },
         ],
-        "time-out": [
+        'time-out': [
           {
-            isValid: (value, data) => data["time-in"] <= value,
-            message: "Time out must be after time in",
+            isValid: (value, data) => data['time-in'] <= value,
+            message: 'Time out must be after time in',
           },
         ],
+      },
+    },
+    showingLogic: {
+      status: {
+        present: ['time-in', 'time-out'],
       },
     },
     onSuccess: (data) => {
       console.log(data);
     },
-  });
-
-  // Dynamic display logic based on status field
-  const statusField = document.getElementById("status");
-  const timeInField = document.getElementById("time-in").parentElement;
-  const timeOutField = document.getElementById("time-out").parentElement;
-
-  statusField.addEventListener("change", () => {
-    const isAbsent = statusField.value === "absent";
-    [timeInField, timeOutField].forEach(
-      (field) => (field.style.display = isAbsent ? "none" : "flex")
-    );
   });
 });

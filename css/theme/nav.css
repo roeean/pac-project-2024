@@ -1,63 +1,61 @@
 .nav {
-    height: var(--nav-height);
-    padding: 0 20px;
+  height: var(--nav-height);
+  padding: 0 20px;
 }
 
 .nav .menu {
-    gap: 1.5rem;
+  gap: 1.5rem;
 }
 
 .nav .menu .menu-item {
-    position: relative;
+  position: relative;
 }
-
 
 /*! Header Nav */
 
 #header-nav {
-    margin-top: calc(var(--header-height) + 1px);
+  margin-top: calc(var(--header-height) + 1px);
 }
 
 #header-nav .menu .menu-item.active::after {
-    content: '';
-    display: block;
-    width: 100%;
-    position: absolute;
-    height: 1px;
-    background-color: var(--color-tertiary-dark);
-    top: calc(var(--nav-height) - 10px);
+  content: '';
+  display: block;
+  width: 100%;
+  position: absolute;
+  height: 1px;
+  background-color: var(--color-tertiary-dark);
+  top: calc(var(--nav-height) - 10px);
 }
 
 #header-nav .menu .menu-item.active a {
-    color: var(--color-tertiary-dark);
+  color: var(--color-tertiary-dark);
 }
 
 /*! Footer Nav */
 
 #footer-nav .menu {
-    flex-wrap: wrap;
-    max-width: 400px;
-   
+  flex-wrap: wrap;
+  max-width: 400px;
 }
 
 #footer-nav .menu .menu-item a,
 #social-nav .menu .menu-item a {
-    color: var(--color-secondary);
+  color: var(--color-secondary);
 }
 
 #footer-nav .menu .menu-item.active a,
 #social-nav .menu .menu-item.active a,
 #footer-nav .menu .menu-item:hover a,
 #social-nav .menu .menu-item:hover a {
-    color: var(--color-white);
+  color: var(--color-white);
 }
 
 #social-nav {
-    margin-top: 20px;
-    padding: 0;
+  margin-top: 20px;
+  padding: 0;
 }
 
 #social-nav .menu {
-    gap: 10px;
-    justify-content: start;
+  gap: 10px;
+  justify-content: start;
 }

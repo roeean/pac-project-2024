@@ -1,123 +1,201 @@
 class FormValidator {
-  constructor(formId) {
+  constructor(formId, options = {}, showingLogic = {}) {
+    const { customValidations = {}, requiredFields = [] } = options;
+
     this.form = document.getElementById(formId);
     if (!this.form) throw new Error(`Form with ID "${formId}" not found.`);
-    this.errors = [];
+
+    this.errors = new Set();
+    this.successes = new Set();
+
+    this.validations = this.initializeValidations(customValidations, requiredFields);
+    this.showingLogic = showingLogic;
+
+    this.applyDisplayLogic();
+    this.attachEventListeners();
+  }
+
+  initializeValidations(customValidations, requiredFields) {
+    const validations = { ...customValidations };
+    requiredFields.forEach((fieldId) => {
+      validations[fieldId] = validations[fieldId] || [];
+      validations[fieldId].push({
+        isValid: (value) => value.trim() !== '',
+        message: `${fieldId.replace('-', ' ')} is required`,
+      });
+    });
+    return validations;
+  }
+
+  applyDisplayLogic() {
+    Object.entries(this.showingLogic).forEach(([fieldId, displayLogic]) => {
+      const field = document.getElementById(fieldId);
+      if (!field) return;
+
+      this.toggleFieldsDisplay(fieldId, field.value);
+    });
+  }
+
+  toggleFieldsDisplay(fieldId, fieldValue) {
+    const displayLogic = this.showingLogic[fieldId];
+    if (!displayLogic) return;
+
+    const fieldsToShow = displayLogic[fieldValue] || [];
+    const allPossibleFields = new Set(Object.values(displayLogic).flat());
+
+    allPossibleFields.forEach((id) => {
+      const element = document.getElementById(id)?.parentElement;
+      if (element) element.style.display = 'none';
+      const fieldSpanForField = document.getElementById(`${id}-span`);
+      if (fieldSpanForField) {
+        fieldSpanForField.classList.add('invisible');
+      }
+    });
+
+    fieldsToShow.forEach((id) => {
+      const element = document.getElementById(id)?.parentElement;
+      if (element) element.style.display = '';
+      const fieldSpanForField = document.getElementById(`${id}-span`);
+      if (fieldSpanForField) {
+        fieldSpanForField.classList.remove('invisible');
+      }
+    });
+  }
+
+  attachEventListeners() {
+    Object.keys(this.showingLogic).forEach((fieldId) => {
+      const field = document.getElementById(fieldId);
+      if (!field) return;
+
+      field.addEventListener('change', (e) => this.toggleFieldsDisplay(fieldId, e.target.value));
+    });
+
+    this.attachOnChangeValidation();
+  }
+
+  attachOnChangeValidation() {
+    Object.entries(this.validations).forEach(([fieldId, rules]) => {
+      const field = document.getElementById(fieldId);
+      if (!field) return;
+
+      const debouncedValidate = debounce(() => this.validateField(fieldId, rules, field.value), 1000);
+      field.addEventListener('input', debouncedValidate);
+    });
+  }
+
+  validateField(fieldId, rules, value) {
+    this.clearMessage(fieldId);
+    const data = this.formData();
+    let errorFlag = false;
+    rules.forEach(({ isValid, message }) => {
+      if (!isValid(value, data)) {
+        this.addError(fieldId, message);
+        errorFlag = true;
+      }
+    });
+    if (!errorFlag) this.addSuccess(fieldId);
+  }
+
+  validateOnSubmit() {
+    this.clearAllMessages();
+
+    Object.entries(this.validations).forEach(([fieldId, rules]) => {
+      if (!this.isFieldVisible(fieldId)) return;
+      const field = document.getElementById(fieldId);
+      this.validateField(fieldId, rules, field.value);
+    });
+
+    return this.errors.size === 0;
   }
 
   isFieldVisible(fieldId) {
     const element = document.getElementById(fieldId)?.parentElement;
     if (!element) return false;
     const style = window.getComputedStyle(element);
-    return style.display !== "none";
+    return style.display !== 'none';
   }
 
   addError(inputId, message) {
     const inputElement = document.getElementById(inputId);
-    if (!inputElement) return;
+    if (!inputElement || !this.isFieldVisible(inputId)) return;
 
-    this.clearError(inputId); // Ensure any previous error messages are cleared
-    const errorMessageElement = document.createElement("div");
-    errorMessageElement.className = "error-message";
+    this.clearMessage(inputId);
+
+    const errorMessageElement = document.createElement('div');
+    errorMessageElement.className = 'error-message';
     errorMessageElement.textContent = message;
     inputElement.parentElement.appendChild(errorMessageElement);
-    inputElement.classList.add("error");
+    inputElement.classList.add('error');
+    this.errors.add(inputId);
+
+    const fieldSpanForField = document.getElementById(`${inputId}-span`);
+    if (fieldSpanForField) {
+      fieldSpanForField.classList.add('error');
+    }
   }
 
-  clearError(inputId) {
+  addSuccess(inputId) {
     const inputElement = document.getElementById(inputId);
     if (!inputElement) return;
 
-    const errorElement =
-      inputElement.parentElement.querySelector(".error-message");
+    inputElement.classList.add('success');
+    this.successes.add(inputId);
+
+    const fieldSpanForField = document.getElementById(`${inputId}-span`);
+    if (fieldSpanForField) {
+      fieldSpanForField.classList.add('success');
+    }
+  }
+
+  clearMessage(inputId) {
+    const inputElement = document.getElementById(inputId);
+    if (!inputElement) return;
+
+    const errorElement = inputElement.parentElement.querySelector('.error-message');
     if (errorElement) errorElement.remove();
-    inputElement.classList.remove("error");
+    inputElement.classList.remove('error');
+    inputElement.classList.remove('success');
 
-    this.errors = this.errors.filter((error) => error.id !== inputId);
+    const fieldSpanForField = document.getElementById(`${inputId}-span`);
+    if (fieldSpanForField) {
+      fieldSpanForField.classList.remove('error');
+      fieldSpanForField.classList.remove('success');
+    }
+
+    this.errors.delete(inputId);
+    this.successes.delete(inputId);
   }
 
-  clearAllErrors() {
-    this.errors.forEach(({ id }) => this.clearError(id));
-    this.errors = []; // Reset the errors array after clearing
+  formData() {
+    return Object.fromEntries(new FormData(this.form).entries());
   }
 
-  validateOnSubmit({ requiredFields = [], customValidations = {} }, data = {}) {
-    this.clearAllErrors(); // Reset errors before new validation
-
-    // Handle required fields
-    requiredFields.forEach((id) => {
-      if (!this.isFieldVisible(id)) return; // Skip validation for hidden fields
-
-      const inputElement = document.getElementById(id);
-      if (inputElement && inputElement.value.trim() === "") {
-        this.addError(id, `${id} is required`);
-        this.errors.push({ id, message: `${id} is required` });
-      }
-    });
-
-    // Handle custom validations
-    Object.entries(customValidations).forEach(([id, validations]) => {
-      if (!this.isFieldVisible(id)) return; // Skip validation for hidden fields
-
-      validations.forEach(({ isValid, message }) => {
-        const inputValue = document.getElementById(id).value;
-        if (!isValid(inputValue, data)) {
-          this.addError(id, message);
-          this.errors.push({ id, message });
-        }
-      });
-    });
-
-    return this.errors.length === 0; // Return true if no errors, otherwise false
-  }
-
-  attachOnChangeValidation({ customValidations = [], requiredFields = [] }) {
-    requiredFields
-      .filter((item) => !customValidations[item])
-      .forEach((fieldId) => {
-        const field = document.getElementById(fieldId);
-        if (!field) return;
-
-        field.addEventListener("change", () => {
-          this.clearError(fieldId);
-        });
-      });
-
-    Object.entries(customValidations).forEach(([fieldId, rules]) => {
-      const field = document.getElementById(fieldId);
-      if (!field) return;
-
-      field.addEventListener("change", () => {
-        this.clearError(fieldId);
-
-        rules.forEach(({ isValid, message }) => {
-          const value = field.value;
-          const data = Object.fromEntries(new FormData(this.form).entries());
-          if (!isValid(value, data)) {
-            this.addError(fieldId, message);
-            this.errors.push({ id: fieldId, message });
-          }
-        });
-      });
-    });
+  clearAllMessages() {
+    this.errors.forEach((id) => this.clearMessage(id));
+    this.successes.forEach((id) => this.clearMessage(id));
   }
 }
 
-const initializeForm = ({formId, validations, onSuccess}) => {
-  const formValidator = new FormValidator(formId);
+const initializeForm = ({ formId, validations, showingLogic, onSuccess }) => {
+  const formValidator = new FormValidator(formId, validations, showingLogic);
 
-  // Attach on-change validation for specified fields
-  formValidator.attachOnChangeValidation(validations);
-
-  formValidator.form.addEventListener("reset", (event) => {
-    formValidator.clearAllErrors();
+  formValidator.form.addEventListener('reset', () => {
+    formValidator.clearAllMessages();
   });
-  // Handle form submission
-  formValidator.form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const data = Object.fromEntries(new FormData(formValidator.form).entries());
 
-    // Perform full form validation on submit
-    if (formValidator.validateOnSubmit(validations, data)) onSuccess(data);
+  formValidator.form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const isValidData = formValidator.validateOnSubmit();
+    if (isValidData) onSuccess(formValidator.formData());
   });
 };
+
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      func(...args);
+    }, wait);
+  };
+}

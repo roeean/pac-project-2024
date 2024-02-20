@@ -1,13 +1,13 @@
 /*! Color */
 
-.typo-primary { 
-    color: var(--color-primary-dark);
+.typo-primary {
+  color: var(--color-primary-dark);
 }
 
-.typo-secondary { 
-    color: var(--color-secondary-dark);
+.typo-secondary {
+  color: var(--color-secondary-dark);
 }
-  
-.typo-tertiary { 
-    color: var(--color-tertiary-dark);
+
+.typo-tertiary {
+  color: var(--color-tertiary-dark);
 }

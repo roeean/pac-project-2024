@@ -1,0 +1,172 @@
+#main {
+  height: unset;
+}
+
+#main #main-content {
+  justify-content: flex-start;
+}
+
+.site-name-ease {
+  font-weight: 600;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section .section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: var(--color-white);
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section .section-title .site-name-ease {
+  font-weight: 700;
+}
+
+.section .section-paragraph {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  width: calc(100% - 40px);
+  padding: 20px;
+}
+
+.cta {
+  height: 370px;
+  margin-top: 1px;
+}
+
+#section-about {
+  background-color: var(--color-secondary-light);
+  gap: 15px;
+  padding: 75px 0;
+}
+
+hr {
+  width: 100px;
+  height: 1px;
+  background-color: var(--color-gray-dark);
+  border: none;
+  margin: 15px auto;
+}
+
+#section-about .section-title {
+  font-size: 2.5rem;
+  color: var(--color-secondary-dark);
+  margin: 0;
+}
+
+#section-about.section .section-paragraph {
+  text-align: center;
+  padding: 0;
+  font-size: 1.5rem;
+  /* text-transform: uppercase; */
+}
+
+#section-team {
+  position: relative;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  background-color: var(--color-tertiary-light);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#section-team .section-title {
+  background-color: var(--color-tertiary-dark);
+}
+
+#section-team .section-paragraph {
+  padding: 0;
+  font-size: 1rem;
+  width: 100%;
+}
+
+#section-team .section-paragraph.contact-info {
+  font-size: 0.9rem;
+  width: 100%;
+  justify-content: space-around;
+}
+
+#section-team .section-paragraph.contact-info > h3 {
+  margin-bottom: 10px;
+}
+
+#section-team .section-paragraph.contact-info > div {
+  font-size: 0.9rem;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#section-team .team-member {
+  height: 100%;
+  align-items: flex-start;
+}
+
+#section-team .team-member .team-member-image {
+  width: 30%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#section-team .team-member .team-member-data {
+  width: 70%;
+  font-size: 1.4rem;
+  padding: 20px;
+  height: 295px;
+}
+
+#section-team .section-title {
+  margin-bottom: 0;
+}
+
+#section-features {
+  background-color: var(--color-primary-light);
+  width: 100%;
+  height: 100%;
+}
+
+#section-features .section-title {
+  background-color: var(--color-primary-dark);
+}
+
+#section-features .section-paragraph {
+  padding: 0 20px;
+
+  font-size: 1rem;
+  width: 100%;
+}
+
+.section-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: stretch;
+  padding: 20px;
+  margin: 0;
+}
+
+.section-list li {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  padding: 20px;
+  text-align: center;
+  background-color: var(--color-primary-lighten);
+  border: 1px solid var(--color-primary-darken);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}

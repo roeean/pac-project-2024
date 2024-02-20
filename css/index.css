@@ -1,8 +1,8 @@
-@import "theme/vars.css";
-@import "theme/global.css";
-@import "theme/layout.css";
-@import "theme/buttons.css";
-@import "theme/typography.css";
-@import "theme/nav.css";
-@import "theme/dialog.css";
-@import "theme/forms.css";
+@import 'theme/vars.css';
+@import 'theme/global.css';
+@import 'theme/layout.css';
+@import 'theme/buttons.css';
+@import 'theme/typography.css';
+@import 'theme/nav.css';
+@import 'theme/dialog.css';
+@import 'theme/forms.css';

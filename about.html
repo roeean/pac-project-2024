@@ -1,14 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EmploEase - HR Platform</title>
+    <title>EmploEase - About Us</title>
     <link rel="stylesheet" href="/css/index.css" />
-    <link rel="stylesheet" href="/css/pages/home.css" />
+    <link rel="stylesheet" href="/css/pages/about.css" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="/scripts/nav.js"></script>
     <script src="/scripts/login.js"></script>
+    <script src="/scripts/forms.js"></script>
   </head>
   <body>
     <header id="header" class="top-bar flex-sb">
@@ -22,21 +23,81 @@
 
     <main id="main">
       <div id="main-content">
-        <h1>About Us</h1>
+        <div class="hero">
+          <img src="/assets/images/about-hero.jpg" alt="About EmploEase" />
+          <h1>About Emplo<span class="site-name-ease">Ease</span></h1>
+        </div>
+
+        <div class="container">
+          <section id="section-about" class="section flex-column">
+            <h2 class="section-title">Why Emplo<span class="site-name-ease">Ease</span></h2>
+            <p class="section-paragraph">
+              Emplo<span class="site-name-ease">Ease</span> is a modern HR platform that powers productivity, engagement, and retention. We provide a suite of tools that help businesses manage their
+              workforce, from recruitment to retirement.
+            </p>
+            <hr />
+            <p class="section-paragraph">
+              Our platform is designed to be intuitive and user-friendly, making it easy for HR professionals to manage their day-to-day tasks. We believe that when HR is empowered, employees are
+              empowered, and that's when the magic happens.
+            </p>
+            <hr />
+
+            <p class="section-paragraph">
+              Emplo<span class="site-name-ease">Ease</span> is built with the latest technologies, ensuring that our platform is always up to date and secure. We are constantly improving our platform
+              to meet the needs of our customers, and we are always looking for ways to make HR easier.
+            </p>
+          </section>
+
+          <div class="cta flex">
+            <section id="section-team" class="section">
+              <h2 class="section-title">Roee Angel</h2>
+              <div class="team-member flex">
+                <img class="team-member-image" src="/assets/images/roee.jpg" alt="Team Member 1" />
+                <div class="team-member-data">
+                  <p class="section-paragraph">With a background as a Web Development Manager at Colmobil Corp, Roy spearheads the EmploEase project.</p>
+                  <hr />
+                  <p class="section-paragraph">
+                    Roy is a seasoned professional with a proven track record of delivering high-quality web applications. He is passionate about creating innovative solutions that drive business
+                    growth and improve user experience.
+                  </p>
+                  <hr />
+                  <div class="section-paragraph flex-column contact-info">
+                    <h3>Contact</h3>
+                    <div class="flex">
+                      <a href="https://www.linkedin.com/in/roeean/" target="_blank"> <i class="fab fa-linkedin"></i> @roeean </a>
+                      <a href="mailto:roeean94@gmail.com" target="_blank">
+                        <i class="fas fa-envelope"></i>
+                        roeean94@gmail.com</a
+                      >
+                      <a href="tel:0523993399" target="_blank"> <i class="fas fa-phone"></i> 052-3993399</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="section-features" class="section">
+              <h2 class="section-title">Version 1.0 Features</h2>
+              <p class="section-paragraph">
+                This initial version of Emplo<span class="site-name-ease">Ease</span>
+                In this very first version, We introduces a robust UI, in which you can see the UI and the UX of the platform, featuring:
+              </p>
+              <ul class="section-list">
+                <li>Sample forms to demonstrate user input capabilities</li>
+                <li>Examples of form validations to ensure data integrity</li>
+                <li>A sneak peek into the interface design, offering a glimpse into our UX</li>
+              </ul>
+            </section>
+          </div>
+        </div>
       </div>
     </main>
 
     <footer id="footer" class="flex">
       <div id="footer-content" class="flex-sb">
         <div>
-          <span class="site-name">
-            <span class="site-name-emplo">Emplo</span
-            ><span class="site-name-ease">Ease</span>
-          </span>
+          <span class="site-name"> <span class="site-name-emplo">Emplo</span><span class="site-name-ease">Ease</span> </span>
           <nav id="social-nav" class="nav"></nav>
-          <span class="copyright">
-            Copyright © 2024 EmploEase, Inc. All rights reserved.
-          </span>
+          <span class="copyright"> Copyright © 2024 EmploEase, Inc. All rights reserved. </span>
         </div>
         <nav id="footer-nav" class="nav"></nav>
       </div>
@@ -45,25 +106,18 @@
     <div id="login-dialog" class="dialog">
       <div class="dialog-content flex-column">
         <h2 class="dialog-title">Login</h2>
-        <form id="login-form" class="flex-column g1">
-          <input
-            type="text"
-            class="error"
-            id="username"
-            name="username"
-            placeholder="User"
-            required
-          />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            required
-          />
-          <div class="frm-buttons flex g1">
-            <button type="submit" class="btn btn-primary">Login</button>
-            <button class="btn btn-secondary close-button">Cancel</button>
+        <form id="login-form" class="flex-column">
+          <div class="form-group">
+            <label for="username" class="white-label">Username</label>
+            <input type="text" id="username" name="username" />
+          </div>
+          <div class="form-group">
+            <label for="password" class="white-label">Password</label>
+            <input type="password" id="password" name="password" />
+          </div>
+          <div class="form-buttons">
+            <input type="submit" class="btn btn-primary" value="LOGIN" />
+            <input type="reset" class="btn btn-secondary close-button" value="Cancel" />
           </div>
         </form>
       </div>
