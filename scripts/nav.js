@@ -1,36 +1,36 @@
 const navigationItems = [
   {
-    href: '/home.html',
+    href: 'home.html',
     text: 'Home',
     icon: ['fas', 'fa-house'],
   },
   {
-    href: '/about.html',
+    href: 'about.html',
     text: 'About Us',
     icon: ['fas', 'fa-address-card'],
   },
   {
-    href: '/forms/register-employee.html',
+    href: 'register-employee.html',
     text: 'Register Employee',
     icon: ['fas', 'fa-user-plus'],
   },
   {
-    href: '/forms/schedule.html',
+    href: 'schedule.html',
     text: 'Shifts Schedule',
     icon: ['fas', 'fa-calendar-alt'],
   },
   {
-    href: '/forms/attendance.html',
+    href: 'attendance.html',
     text: 'Attendance Update',
     icon: ['fas', 'fa-user-clock'],
   },
   {
-    href: '/forms/shift.html',
+    href: 'shift.html',
     text: 'Add shift',
     icon: ['fas', 'fa-plus-square'],
   },
   {
-    href: '/forms/support.html',
+    href: 'support.html',
     text: 'Support',
     icon: ['fas', 'fa-headset'],
   },
@@ -72,7 +72,7 @@ const createMenuItem = ({ href, text, icon }, isWithIcons) => {
 
   listItem.appendChild(link);
 
-  if (href === window.location.pathname) {
+  if (href === window.location.pathname.split('/').pop()) {
     listItem.classList.add('active');
   }
 

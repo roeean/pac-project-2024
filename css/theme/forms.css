@@ -147,9 +147,15 @@ select.success:focus {
 .form-buttons {
   width: 100%;
   margin-top: 20px;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
 }
+
+.form-buttons.without-mb {
+  margin-bottom: 0;
+}
+
 
 /*! Label */
 
