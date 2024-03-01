@@ -4,7 +4,7 @@
 body {
   margin: 0;
   font-size: 16px;
-  font-family:  "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-optical-sizing: auto;
   background-color: var(--color-background);
   min-width: 450px;
@@ -95,10 +95,10 @@ a .fas {
 }
 
 .space {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  justify-content: space-between;
 }
 /*! Bars */
 
@@ -117,7 +117,7 @@ a .fas {
   max-width: 1280px;
   width: 100%;
   margin-top: 3rem;
-  align-items: flex-start
+  align-items: flex-start;
 }
 
 .cat .with-gap {

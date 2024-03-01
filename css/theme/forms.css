@@ -32,7 +32,8 @@ select:focus {
 
 /*! Radio & Checkbox */
 
-input[type='radio'], input[type='checkbox'] {
+input[type='radio'],
+input[type='checkbox'] {
   width: 20px;
   height: 20px;
   margin-right: 10px;
@@ -41,11 +42,13 @@ input[type='radio'], input[type='checkbox'] {
   cursor: pointer;
 }
 
-input[type='radio']:hover, input[type='checkbox']:hover {
+input[type='radio']:hover,
+input[type='checkbox']:hover {
   border: 1px solid var(--color-primary);
 }
 
-input[type='radio']:checked, input[type='checkbox']:checked {
+input[type='radio']:checked,
+input[type='checkbox']:checked {
   border: 1px solid var(--color-primary-dark);
 }
 
@@ -81,7 +84,6 @@ input[type='radio']:checked, input[type='checkbox']:checked {
   background-color: var(--color-primary-light);
   color: var(--color-white);
 }
-
 
 /*! Others */
 
@@ -156,7 +158,6 @@ select.success:focus {
   margin-bottom: 0;
 }
 
-
 /*! Label */
 
 label {
@@ -193,7 +194,6 @@ label {
   background-color: var(--color-background);
   width: auto;
 }
-
 
 .form-group label.white-label {
   background-color: var(--color-white);

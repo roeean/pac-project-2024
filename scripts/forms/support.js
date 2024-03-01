@@ -1,19 +1,9 @@
-const requiredFields = [
-  'employee-id',
-  'employee-email',
-  'contact-number',
-  'support-type',
-  'support-description',
-];
+const requiredFields = ['employee-id', 'employee-email', 'contact-number', 'support-type', 'support-description'];
 
 const customValidations = {
-  'employee-id': [
-    validationPatterns.isDigitsOnly,
-    validationPatterns.isLengthInRange(2, 9),
-  ],
+  'employee-id': [validationPatterns.isNumber, validationPatterns.isLengthInRange(2, 9)],
   'employee-email': [validationPatterns.isEmail],
-  'contact-number': [validationPatterns.isDigitsOnly, validationPatterns.isLengthInRange(10, 15)],
-  
+  'contact-number': [validationPatterns.isNumber, validationPatterns.isLengthInRange(10, 15)],
 };
 
 document.addEventListener('DOMContentLoaded', () => {

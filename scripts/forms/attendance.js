@@ -1,16 +1,8 @@
-const requiredFields = [
-  'employee-id',
-  'date',
-  'status',
-  'time-in',
-  'time-out'
-];
+const requiredFields = ['employee-id', 'date', 'status', 'time-in', 'time-out'];
 
 const customValidations = {
-  'employee-id': [
-    validationPatterns.isDigitsOnly,
-    validationPatterns.isLengthInRange(2, 9), 
-  ],
+  'employee-id': [validationPatterns.isNumber, validationPatterns.isLengthInRange(2, 9)],
+  date: [validationPatterns.isDateNotInFuture],
   'time-out': [
     {
       isValid: (value, data) => data['time-in'] <= value,

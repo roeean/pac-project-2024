@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -30,78 +30,74 @@
         </div>
 
         <div class="flex cta with-gap">
-          
-
           <form id="register-form" class="cta-box">
-            
             <div class="flex fullwidth g1 stretch">
               <!-- Personal Details Section -->
-            <fieldset class="fullwidth">
-              <legend>Personal Details</legend>
-              <div class="flex fullwidth g1">
-                <div class="form-group">
-                  <label for="first-name">First name</label>
-                  <input type="text" id="first-name" name="first-name"  />
+              <fieldset class="fullwidth">
+                <legend>Personal Details</legend>
+                <div class="flex fullwidth g1">
+                  <div class="form-group">
+                    <label for="first-name">First name</label>
+                    <input type="text" id="first-name" name="first-name" />
+                  </div>
+                  <div class="form-group">
+                    <label for="last-name">Last name</label>
+                    <input type="text" id="last-name" name="last-name" />
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="last-name">Last name</label>
-                  <input type="text" id="last-name" name="last-name"  />
+                <div class="flex fullwidth g1">
+                  <div class="form-group">
+                    <label for="date-of-birth">Date of Birth</label>
+                    <input type="date" id="date-of-birth" name="date-of-birth" />
+                  </div>
+                  <div class="form-group">
+                    <label for="identity-number">Identity number</label>
+                    <input type="text" id="identity-number" name="identity-number" />
+                  </div>
                 </div>
-              </div>
-              <div class="flex fullwidth g1">
-                <div class="form-group">
-                  <label for="date-of-birth">Date of Birth</label>
-                  <input type="date" id="date-of-birth" name="date-of-birth"  />
+                <div class="form-group radio">
+                  <label for="gender">Gender</label>
+                  <div class="radio-group">
+                    <input type="radio" id="male" name="gender" value="male" />
+                    <label class="radio-label" for="male">Male</label>
+                  </div>
+                  <div class="radio-group">
+                    <input type="radio" id="female" name="gender" value="female" checked />
+                    <label class="radio-label" for="female">Female</label>
+                  </div>
+                  <div class="radio-group">
+                    <input type="radio" id="other" name="gender" value="other" />
+                    <label class="radio-label" for="other">Other</label>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="identity-number">Identity number</label>
-                  <input type="text" id="identity-number" name="identity-number"  />
-                </div>
-              </div>
-              <div class="form-group radio">
-                <label for="gender">Gender</label>
-                <div class="radio-group">
-                  <input type="radio" id="male" name="gender" value="male"  />
-                  <label class="radio-label" for="male">Male</label>
-                </div>
-                <div class="radio-group">
-                  <input type="radio" id="female" name="gender" value="female" checked />
-                  <label class="radio-label" for="female">Female</label>
-                </div>
-                <div class="radio-group">
-                  <input type="radio" id="other" name="gender" value="other" />
-                  <label class="radio-label" for="other">Other</label>
-                </div>
-              </div>
-            </fieldset>
+              </fieldset>
 
-            <!-- Contact Information Section -->
-            <fieldset class="fullwidth">
-              <legend>Contact Information</legend>
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="example@gmail.com"   />
-              </div>
-              <div class="form-group">
-                <label for="phone-number">Phone Number</label>
-                <input type="tel" id="phone-number" name="phone-number" pattern="[0-9]{10}" placeholder="052-3993399"  />
-              </div>
-              <div class="form-group">
-                <label for="address">Address</label>
-                <textarea id="address" name="address" rows="4"></textarea>
-              </div>
-            </fieldset>
+              <!-- Contact Information Section -->
+              <fieldset class="fullwidth">
+                <legend>Contact Information</legend>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="example@gmail.com" />
+                </div>
+                <div class="form-group">
+                  <label for="phone-number">Phone Number</label>
+                  <input type="tel" id="phone-number" name="phone-number" pattern="[0-9]{10}" placeholder="052-3993399" />
+                </div>
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <textarea id="address" name="address" rows="4"></textarea>
+                </div>
+              </fieldset>
             </div>
-            
-            <div class="flex fullwidth g1 stretch">
 
+            <div class="flex fullwidth g1 stretch">
               <!-- Employment Details Section -->
               <div class="fullwidth">
                 <fieldset>
                   <legend>Employment Details</legend>
                   <div class="form-group">
                     <label for="employee-id">Employee ID</label>
-                    <input type="text" id="employee-id" name="employee-id"  />
+                    <input type="text" id="employee-id" name="employee-id" />
                   </div>
                   <div class="form-group">
                     <label for="department">Department</label>
@@ -149,7 +145,7 @@
                       <option value="flexible">Flexible</option>
                     </select>
                   </div>
-  
+
                   <!-- Preferred Workdays -->
                   <div class="form-group radio">
                     <label>Preferred Workdays</label>
@@ -159,37 +155,37 @@
                     </div>
                     <div class="radio-group">
                       <label class="radio-label" for="workdays-monday">Monday</label>
-                        <input type="checkbox" id="workdays-monday" name="workdays" value="Monday" />
-                      </div>
-                      <div class="radio-group">
-                          <label class="radio-label" for="workdays-tuesday">Tuesday</label>
-                          <input type="checkbox" id="workdays-tuesday" name="workdays" value="Tuesday" />
-                        </div>
-                      <div class="radio-group">
-                          <label class="radio-label" for="workdays-wednesday">Wednesday</label>
-                          <input type="checkbox" id="workdays-wednesday" name="workdays" value="Wednesday" />
-                        </div>
-                      <div class="radio-group">
-                          <label class="radio-label" for="workdays-thursday">Thursday</label>
-                          <input type="checkbox" id="workdays-thursday" name="workdays" value="Thursday" />
-                        </div>
-                      <div class="radio-group">
-                          <label class="radio-label" for="workdays-friday">Friday</label>
-                          <input type="checkbox" id="workdays-friday" name="workdays" value="Friday" />
-                        </div>
+                      <input type="checkbox" id="workdays-monday" name="workdays" value="Monday" />
+                    </div>
+                    <div class="radio-group">
+                      <label class="radio-label" for="workdays-tuesday">Tuesday</label>
+                      <input type="checkbox" id="workdays-tuesday" name="workdays" value="Tuesday" />
+                    </div>
+                    <div class="radio-group">
+                      <label class="radio-label" for="workdays-wednesday">Wednesday</label>
+                      <input type="checkbox" id="workdays-wednesday" name="workdays" value="Wednesday" />
+                    </div>
+                    <div class="radio-group">
+                      <label class="radio-label" for="workdays-thursday">Thursday</label>
+                      <input type="checkbox" id="workdays-thursday" name="workdays" value="Thursday" />
+                    </div>
+                    <div class="radio-group">
+                      <label class="radio-label" for="workdays-friday">Friday</label>
+                      <input type="checkbox" id="workdays-friday" name="workdays" value="Friday" />
+                    </div>
                   </div>
-              
+
                   <!-- Additional Preferences -->
                   <div class="form-group">
                     <label for="additional-preferences">Additional Preferences</label>
                     <textarea id="additional-preferences" name="additional-preferences" rows="3"></textarea>
                   </div>
                 </fieldset>
-              <div class="form-buttons without-mb">
-                <input type="submit" class="btn btn-tertiary" value="Register" />
-                <input type="reset" class="btn btn-secondary" value="Reset" />
+                <div class="form-buttons without-mb">
+                  <input type="submit" class="btn btn-tertiary" value="Register" />
+                  <input type="reset" class="btn btn-secondary" value="Reset" />
+                </div>
               </div>
-            </div>
             </div>
           </form>
         </div>

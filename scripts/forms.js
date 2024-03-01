@@ -119,7 +119,7 @@ class FormValidator {
     const inputElement = document.getElementById(inputId);
     if (!inputElement || !this.isFieldVisible(inputId)) return;
 
-    message = message.replaceAll('%field%', inputId.replaceAll('-',' '));
+    message = message.replaceAll('%field%', inputId.replaceAll('-', ' '));
     this.clearMessage(inputId);
 
     const errorMessageElement = document.createElement('div');

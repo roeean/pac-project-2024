@@ -1,12 +1,4 @@
-const requiredFields = [
-  'shift-name',
-  'start-time',
-  'end-time',
-  'frequency',
-  'start-date',
-  'end-date',
-  'assigned-employees',
-];
+const requiredFields = ['shift-name', 'start-time', 'end-time', 'frequency', 'start-date', 'end-date', 'assigned-employees'];
 
 const customValidations = {
   'end-time': [
@@ -32,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     showingLogic: {
       frequency: {
-        weekly: ['workdays-sunday', 'workdays-monday','workdays-tuesday', 'workdays-wednesday', 'workdays-thursday', 'workdays-friday', 'workdays-saturday'],
-        'bi-weekly': ['workdays-sunday', 'workdays-monday','workdays-tuesday', 'workdays-wednesday', 'workdays-thursday', 'workdays-friday', 'workdays-saturday'],
+        weekly: ['workdays-sunday', 'workdays-monday', 'workdays-tuesday', 'workdays-wednesday', 'workdays-thursday', 'workdays-friday', 'workdays-saturday'],
+        'bi-weekly': ['workdays-sunday', 'workdays-monday', 'workdays-tuesday', 'workdays-wednesday', 'workdays-thursday', 'workdays-friday', 'workdays-saturday'],
       },
     },
     onSuccess: (data) => {
