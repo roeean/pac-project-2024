@@ -44,9 +44,15 @@
 
 /*! Footer Nav */
 
+
+#footer-nav {
+  height: unset;
+}
+
 #footer-nav .menu {
   flex-wrap: wrap;
-  max-width: 400px;
+  font-size: 0.9rem;
+  gap: 0.5rem;
 }
 
 #footer-nav .menu .menu-item:not(:first-child)::before {
